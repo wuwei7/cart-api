@@ -1,10 +1,10 @@
-INSERT INTO restaurant (id, zip_code, supplement, name) VALUES
-(1L, '00000001', 'Supplement Address Restaurant 1', 'Restaurant 1'),
-(2L, '00000002', 'Supplement Address Restaurant 2', 'Restaurant 2');
+INSERT INTO restaurant (id, zip_code, address, name) VALUES
+(1L, '00000001', 'Address Restaurant 1', 'Restaurant 1'),
+(2L, '00000002', 'Address Restaurant 2', 'Restaurant 2');
 
-INSERT INTO client (id, zip_code, supplement, name) VALUES
-(1L, '00000001', 'Supplement Address Client 1', 'Client 1'),
-(2L, '00000002', 'Supplement Address Client 2', 'Client 2');
+INSERT INTO client (id, zip_code, address, name) VALUES
+(1L, '00000001', 'Address Client 1', 'Client 1'),
+(2L, '00000002', 'Address Client 2', 'Client 2');
 
 INSERT INTO product (id, available, name, unit_value, restaurant_id) VALUES
 (1L, true, 'Product 1', 5.0, 1L),

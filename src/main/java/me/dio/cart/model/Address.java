@@ -14,5 +14,5 @@ import javax.persistence.Embeddable;
 @NoArgsConstructor
 public class Address {
     private String zipCode;
-    private String supplement;
+    private String address;
 }
