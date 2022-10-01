@@ -1,6 +1,7 @@
 package me.dio.cart.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import me.dio.cart.enumeration.PaymentMethod;
 import me.dio.cart.model.Cart;
 import me.dio.cart.model.Item;
 import me.dio.cart.repository.CartRepository;
@@ -27,7 +28,17 @@ public class CartServiceImpl implements CartService {
     }
     
     @Override
-    public Cart closeCart(Long id, int paymentMethod) {
-        return null;
+    public Cart closeCart(Long id, int paymentMethodNumber) {
+        Cart cart = seeCart(id);
+        
+        if (cart.getItems().isEmpty()) {
+            throw new RuntimeException("Add items to cart.");
+        }
+        
+        PaymentMethod paymentMethod = paymentMethodNumber == 0 ? PaymentMethod.CASH : PaymentMethod.TERMINAL;
+        
+        cart.setPaymentMethod(paymentMethod);
+        cart.setClosed(true);
+        return cartRepository.save(cart);
     }
 }
