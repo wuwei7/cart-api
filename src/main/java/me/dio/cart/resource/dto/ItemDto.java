@@ -1,4 +1,4 @@
-package me.dio.cart.resource;
+package me.dio.cart.resource.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
