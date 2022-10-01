@@ -21,4 +21,8 @@ public class CartResource {
     public Cart seeCart(@PathVariable("id") Long id) {
         return cartService.seeCart(id);
     }
+    @PatchMapping("/closeCart/{cartId}")
+    public Cart closeCart(@PathVariable("cartId") Long cartId, @RequestParam("paymentMethod") int paymentMethod) {
+        return cartService.closeCart(cartId, paymentMethod);
+    }
 }
