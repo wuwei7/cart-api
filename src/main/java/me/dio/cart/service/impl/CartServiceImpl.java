@@ -12,6 +12,7 @@ import me.dio.cart.resource.dto.ItemDto;
 import me.dio.cart.service.CartService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -50,6 +51,19 @@ public class CartServiceImpl implements CartService {
                 throw new RuntimeException("You can't add products from different restaurants. Please close or empty the cart first.");
             }
         }
+        
+        List<Double> priceOfItems = new ArrayList<>();
+        
+        for (Item cartItem: cartItems) {
+            double itemGrandTotal = cartItem.getProduct().getUnitValue() * cartItem.getAmount();
+            priceOfItems.add(itemGrandTotal);
+        }
+        
+        Double cartGrandTotal = priceOfItems.stream()
+                .mapToDouble(grandTotalOfEachItem -> grandTotalOfEachItem)
+                .sum();
+        
+        cart.setGrandTotal(cartGrandTotal);
         
         cartRepository.save(cart);
         

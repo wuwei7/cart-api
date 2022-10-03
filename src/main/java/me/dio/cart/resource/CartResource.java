@@ -1,5 +1,6 @@
 package me.dio.cart.resource;
 
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import me.dio.cart.model.Cart;
 import me.dio.cart.model.Item;
@@ -7,6 +8,7 @@ import me.dio.cart.resource.dto.ItemDto;
 import me.dio.cart.service.CartService;
 import org.springframework.web.bind.annotation.*;
 
+@Api(value="/ifood-dev-week/carts")
 @RestController
 @RequestMapping("/ifood-dev-week/carts")
 @RequiredArgsConstructor
