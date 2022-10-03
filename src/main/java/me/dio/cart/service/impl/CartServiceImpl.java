@@ -67,7 +67,7 @@ public class CartServiceImpl implements CartService {
         
         cartRepository.save(cart);
         
-        return itemRepository.save(itemToBeAdded);
+        return itemToBeAdded;
     }
     
     @Override
